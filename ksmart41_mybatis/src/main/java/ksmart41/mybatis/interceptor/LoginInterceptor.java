@@ -30,16 +30,28 @@ public class LoginInterceptor implements HandlerInterceptor{
 			
 			
 			//판매자인경우
+			//memberList, modifyMember,deleteMember
 			if("2".equals(sessionLevel)) {
-				if(requestUri.indexOf("memberList") > -1) {
-					response.sendRedirect("/member/memberList");
+				if(requestUri.indexOf("memberList") > -1 ||
+					requestUri.indexOf("modifyMember") > -1 ||
+					requestUri.indexOf("deleteMemer") > -1 ){
+						
+						response.sendRedirect("/");
+						return false;
 				}
 			}
 				
 			//구매자인경우
+			if("3".equals(sessionLevel)) {
+				if(requestUri.indexOf("memberList") > -1 || 
+					requestUri.indexOf("modifyMember") > -1 ||
+					requestUri.indexOf("deleteMemer") > -1 ){
+						
+						response.sendRedirect("/");
+						return false;
+				}
+			}
 		}
-		
 		return true;
 	}
-
 }
