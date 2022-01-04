@@ -417,3 +417,37 @@
 		WHERE
 			m.m_id = 'id002';
  {executed in 1 msec}
+18:40:27.831 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT 
+			 m.m_id
+			,m.m_pw
+			,m.m_name 
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+		FROM
+			tb_member AS m
+		WHERE
+			m.m_id = 'id001';
+ {executed in 26 msec}
+18:40:34.735 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 3 msec}
+18:40:59.625 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 0 msec}
