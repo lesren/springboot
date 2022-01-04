@@ -1,0 +1,127 @@
+11:55:56.219 [http-nio-80-exec-6] INFO  jdbc.sqltiming - SELECT 
+			 l.level_num 	AS levelNum
+			,l.level_name 	AS levelName
+		FROM
+		 	tb_member_level AS l;
+ {executed in 49 msec}
+11:55:57.024 [http-nio-80-exec-9] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 5 msec}
+11:56:00.083 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT 
+			 m.m_id
+			,m.m_pw
+			,m.m_name 
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+		FROM
+			tb_member AS m
+		WHERE
+			m.m_id = 'id001';
+ {executed in 3 msec}
+11:56:00.086 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT 
+			 l.level_num 	AS levelNum
+			,l.level_name 	AS levelName
+		FROM
+		 	tb_member_level AS l;
+ {executed in 1 msec}
+11:56:06.696 [http-nio-80-exec-5] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 2 msec}
+11:56:16.294 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT 
+			 m.m_id
+			,m.m_pw
+			,m.m_name 
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+		FROM
+			tb_member AS m
+		WHERE
+			m.m_id = 'id007';
+ {executed in 1 msec}
+11:56:16.314 [http-nio-80-exec-1] INFO  jdbc.sqltiming - DELETE
+			o
+		FROM
+			tb_goods as g
+			INNER JOIN 
+			tb_order as o
+			ON
+			g.g_code = o.o_g_code
+		WHERE
+			g.g_seller_id = 'id007';
+ {executed in 18 msec}
+11:56:16.315 [http-nio-80-exec-1] INFO  jdbc.sqltiming - DELETE
+		FROM
+			tb_goods
+		WHERE
+			g_seller_id = 'id007';
+ {executed in 1 msec}
+11:56:16.322 [http-nio-80-exec-1] INFO  jdbc.sqltiming - DELETE
+		FROM 
+			tb_login
+		WHERE
+			login_id = 'id007';
+ {executed in 7 msec}
+11:56:16.322 [http-nio-80-exec-1] INFO  jdbc.sqltiming - DELETE
+		FROM
+			tb_member
+		WHERE
+			m_id = 'id007';
+ {executed in 0 msec}
+11:56:16.330 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 0 msec}
+14:20:30.589 [http-nio-80-exec-6] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 6 msec}
+14:20:32.888 [http-nio-80-exec-9] INFO  jdbc.sqltiming - SELECT 
+			 m.m_id
+			,m.m_pw
+			,m.m_name 
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+		FROM
+			tb_member AS m
+		WHERE
+			m.m_id = 'id001';
+ {executed in 1 msec}
+14:20:32.894 [http-nio-80-exec-9] INFO  jdbc.sqltiming - SELECT 
+			 l.level_num 	AS levelNum
+			,l.level_name 	AS levelName
+		FROM
+		 	tb_member_level AS l;
+ {executed in 1 msec}

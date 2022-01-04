@@ -9,5 +9,4 @@ public class Ksmart41MybatisApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(Ksmart41MybatisApplication.class, args);
 	}
-
 }
