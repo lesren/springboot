@@ -417,3 +417,1175 @@
 		WHERE
 			m.m_id = 'id002';
  {executed in 1 msec}
+10:53:15.857 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT 
+			 m.m_id
+			,m.m_pw
+			,m.m_name 
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+		FROM
+			tb_member AS m
+		WHERE
+			m.m_id = 'id001';
+ {executed in 10 msec}
+10:53:22.442 [http-nio-80-exec-6] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 0 msec}
+10:55:34.192 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 0 msec}
+10:55:36.488 [http-nio-80-exec-4] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 0 msec}
+10:55:40.292 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+10:55:40.326 [http-nio-80-exec-7] ERROR jdbc.sqltiming - 1. PreparedStatement.execute() FAILED! SELECT
+			l.login_num		AS loginNum
+			l.login_id		AS loginId
+			l.login_date 	AS loginDate
+			l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, NULL;
+ {FAILED after 9 msec}
+java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'l.login_id		AS loginId
+			l.login_date 	AS loginDate
+			l.logout_date	AS logoutD' at line 3
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:371)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:151)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at com.sun.proxy.$Proxy64.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at com.sun.proxy.$Proxy65.getLoginHistoryList(Unknown Source)
+	at ksmart41.mybatis.service.MemberService.getLoginHistory1(MemberService.java:67)
+	at ksmart41.mybatis.service.MemberService$$FastClassBySpringCGLIB$$b333bdd4.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698)
+	at ksmart41.mybatis.service.MemberService$$EnhancerBySpringCGLIB$$e4405818.getLoginHistory1(<generated>)
+	at ksmart41.mybatis.controller.LoginController.loginHistory1(LoginController.java:31)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+10:57:44.496 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+10:57:44.499 [http-nio-80-exec-1] ERROR jdbc.sqltiming - 11. PreparedStatement.execute() FAILED! SELECT
+			l.login_num		AS loginNum,
+			l.login_id		AS loginId,
+			l.login_date 	AS loginDate,
+			l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, NULL;
+ {FAILED after 1 msec}
+java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null' at line 9
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:371)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:151)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at com.sun.proxy.$Proxy64.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at com.sun.proxy.$Proxy87.getLoginHistoryList(Unknown Source)
+	at ksmart41.mybatis.service.MemberService.getLoginHistory1(MemberService.java:67)
+	at ksmart41.mybatis.service.MemberService$$FastClassBySpringCGLIB$$b333bdd4.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698)
+	at ksmart41.mybatis.service.MemberService$$EnhancerBySpringCGLIB$$e4405818.getLoginHistory1(<generated>)
+	at ksmart41.mybatis.controller.LoginController.loginHistory1(LoginController.java:31)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+10:57:46.729 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 1 msec}
+10:57:50.394 [http-nio-80-exec-5] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+10:57:50.403 [http-nio-80-exec-5] ERROR jdbc.sqltiming - 11. PreparedStatement.execute() FAILED! SELECT
+			l.login_num		AS loginNum,
+			l.login_id		AS loginId,
+			l.login_date 	AS loginDate,
+			l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, NULL;
+ {FAILED after 6 msec}
+java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null' at line 9
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:371)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:89)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:151)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427)
+	at com.sun.proxy.$Proxy64.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at com.sun.proxy.$Proxy87.getLoginHistoryList(Unknown Source)
+	at ksmart41.mybatis.service.MemberService.getLoginHistory1(MemberService.java:67)
+	at ksmart41.mybatis.service.MemberService$$FastClassBySpringCGLIB$$b333bdd4.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698)
+	at ksmart41.mybatis.service.MemberService$$EnhancerBySpringCGLIB$$e4405818.getLoginHistory1(<generated>)
+	at ksmart41.mybatis.controller.LoginController.loginHistory1(LoginController.java:31)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+10:58:15.503 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+10:58:15.505 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum,
+			l.login_id		AS loginId,
+			l.login_date 	AS loginDate,
+			l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 0 msec}
+10:58:44.394 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+10:58:44.397 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum,
+			l.login_id		AS loginId,
+			l.login_date 	AS loginDate,
+			l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 1 msec}
+11:04:00.494 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+11:04:00.496 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 1 msec}
+11:04:01.990 [http-nio-80-exec-4] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 0 msec}
+11:04:03.626 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+11:04:03.628 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 1 msec}
+11:04:07.310 [http-nio-80-exec-8] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+11:04:07.312 [http-nio-80-exec-8] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 1 msec}
+11:04:37.879 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+11:04:37.882 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 0 msec}
+11:04:39.350 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 0 msec}
+11:04:40.826 [http-nio-80-exec-5] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+11:04:40.828 [http-nio-80-exec-5] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 1 msec}
+11:05:14.614 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+11:05:14.616 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 0 msec}
+11:05:17.521 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+11:05:17.524 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 0 msec}
+11:06:02.503 [http-nio-80-exec-3] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+11:06:02.504 [http-nio-80-exec-3] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 0 msec}
+11:06:04.416 [http-nio-80-exec-4] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 1 msec}
+11:06:05.614 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+11:06:05.615 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 0 msec}
+11:06:25.223 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 7 msec}
+11:06:25.245 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 0 msec}
+11:06:27.630 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 0 msec}
+11:06:29.660 [http-nio-80-exec-5] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+11:06:29.663 [http-nio-80-exec-5] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 1 msec}
+11:09:57.606 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+11:09:57.608 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 1 msec}
+11:09:59.270 [http-nio-80-exec-4] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 0 msec}
+11:10:00.299 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+11:10:00.301 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 1 msec}
+11:11:52.471 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 7 msec}
+11:11:55.790 [http-nio-80-exec-4] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 0 msec}
+11:11:57.223 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			 m.m_id
+			,m.m_pw
+			,m.m_name
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+			,m.m_reg_date
+		FROM 
+			tb_member AS m;
+ {executed in 0 msec}
+11:11:58.249 [http-nio-80-exec-10] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+11:11:58.265 [http-nio-80-exec-10] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 0 msec}
+11:52:57.061 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+11:52:57.063 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 0 msec}
+11:52:59.022 [http-nio-80-exec-4] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+11:52:59.025 [http-nio-80-exec-4] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 0 msec}
+11:53:01.316 [http-nio-80-exec-10] INFO  jdbc.sqltiming - SELECT 
+			 l.level_num 	AS levelNum
+			,l.level_name 	AS levelName
+		FROM
+		 	tb_member_level AS l;
+ {executed in 1 msec}
+11:53:04.875 [http-nio-80-exec-6] INFO  jdbc.sqltiming - SELECT 
+			 m.m_id
+			,m.m_pw
+			,m.m_name 
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+		FROM
+			tb_member AS m
+		WHERE
+			m.m_id = 'id001';
+ {executed in 1 msec}
+11:53:46.961 [http-nio-80-exec-6] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+11:53:46.963 [http-nio-80-exec-6] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 1 msec}
+11:54:14.006 [http-nio-80-exec-10] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+11:54:14.008 [http-nio-80-exec-10] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 0 msec}
+11:55:15.288 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+11:55:15.289 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 1 msec}
+11:55:16.324 [http-nio-80-exec-3] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+11:55:16.326 [http-nio-80-exec-3] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 0 msec}
+11:55:18.930 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+11:55:18.931 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 0 msec}
+11:55:21.881 [http-nio-80-exec-9] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+11:55:21.882 [http-nio-80-exec-9] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 0 msec}
+11:55:23.611 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+11:55:23.613 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 1 msec}
+11:56:53.261 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+11:56:53.263 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 1 msec}
+11:56:54.677 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+11:56:54.679 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 1 msec}
+11:56:56.530 [http-nio-80-exec-5] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+11:56:56.531 [http-nio-80-exec-5] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 0 msec}
+11:57:35.126 [http-nio-80-exec-6] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+11:57:35.127 [http-nio-80-exec-6] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 0 msec}
+11:57:36.742 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+11:57:36.743 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 1 msec}
+11:57:38.113 [http-nio-80-exec-10] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+11:57:38.114 [http-nio-80-exec-10] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 0 msec}
+12:00:00.526 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+12:00:00.528 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 0 msec}
+12:00:02.181 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+12:00:02.183 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 0 msec}
+12:00:03.584 [http-nio-80-exec-5] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+12:00:03.586 [http-nio-80-exec-5] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 0 msec}
+12:43:50.363 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 7 msec}
+12:43:50.388 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 1 msec}
+12:44:08.948 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+ {executed in 2 msec}
+12:45:00.497 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+12:45:00.499 [http-nio-80-exec-2] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 0 msec}
+12:45:13.467 [http-nio-80-exec-6] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+ {executed in 1 msec}
+13:46:27.316 [http-nio-80-exec-9] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+13:46:27.318 [http-nio-80-exec-9] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 0 msec}
+13:46:34.686 [http-nio-80-exec-9] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+13:46:34.688 [http-nio-80-exec-9] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 1 msec}
+13:46:38.754 [http-nio-80-exec-3] INFO  jdbc.sqltiming - SELECT 
+			 m.m_id
+			,m.m_pw
+			,m.m_name 
+			,m.m_level
+			,m.m_email
+			,m.m_addr
+		FROM
+			tb_member AS m
+		WHERE
+			m.m_id = 'id001';
+ {executed in 1 msec}
+13:46:40.175 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+13:46:40.176 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 0 msec}
+14:06:27.739 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 1 msec}
+14:06:27.741 [http-nio-80-exec-1] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 0 msec}
+14:24:13.339 [http-nio-80-exec-4] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 6 msec}
+14:24:13.363 [http-nio-80-exec-4] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 0 msec}
+14:24:16.292 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+14:24:16.294 [http-nio-80-exec-7] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 10;
+ {executed in 0 msec}
+14:24:17.457 [http-nio-80-exec-10] INFO  jdbc.sqltiming - SELECT
+			COUNT(1)
+		FROM
+			tb_login;
+ {executed in 0 msec}
+14:24:17.460 [http-nio-80-exec-10] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+
+			LIMIT 0, 5;
+ {executed in 1 msec}
+14:25:04.705 [http-nio-80-exec-4] INFO  jdbc.sqltiming - SELECT
+			l.login_num		AS loginNum
+			,l.login_id		AS loginId
+			,l.login_date 	AS loginDate
+			,l.logout_date	AS logoutDate
+		FROM
+			tb_login AS l
+ {executed in 8 msec}

@@ -10,6 +10,9 @@
 		<a th:if="${session.SID != null}" th:href="@{#}">04.상품검색</a>
 		<a th:href="@{/login}" th:if="${session.SID == null}">05.로그인</a>
 		<a th:href="@{/logout}" th:if="${session.SID != null}">06.로그아웃</a>		
+		<a th:href="@{/loginHistory1}">07.로그인이력(이전,다음)</a>		
+		<a th:href="@{/loginHistory2}">07.로그인이력(동적페이지)</a>		
+		<a th:href="@{/loginHistory3}">07.로그인이력(데이터테이블)</a>		
 		<br><br>
 		<div th:if="${session.SID != null}" style="text-align: right;">
 			<label>[[${session.SID}]] 님이 로그인 하셨습니다. [[${session.SLEVEL}]]</label>

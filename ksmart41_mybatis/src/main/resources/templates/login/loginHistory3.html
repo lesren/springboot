@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="@{layout/default}">
+	<th:block layout:fragment="customTitle">
+		<title th:text="${title}"></title>
+	</th:block>
+	<th:block layout:fragment="customJs">
+		<link rel="stylesheet" type="text/css" th:href="@{//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css}">
+		<script type="text/javascript" th:src="@{//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js}"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(document).on('click', '.modifyBtn', function(){
+					var memberId = $(this).attr('data-memberId');
+					alert(memberId);
+				});
+				
+				$(document).on('click', '#dataTableBtn', function(){
+					var aLengthMenuArray = [];
+					aLengthMenuArray.push([5,10,15,20,25,-1]);
+					aLengthMenuArray.push([5,10,15,20,'이십오','ALL']);
+				
+					$('#dataTableAjax').DataTable( {
+						destroy: true,
+						pageLength: 5,
+						aLengthMenu: aLengthMenuArray,
+				        ajax: {
+				        		url: '/loginHistory3',
+				        		type: 'POST',
+				        		dataSrc: function(data){
+				        					console.table(data);
+				        					return data;
+				        				 }
+				        },
+				        columns: [
+				            { "data": "loginNum" },
+				            { "data": "loginId" },
+				            { "data": "loginDate" },
+				            { "data": "logoutDate" },
+				            { "data": '수정' },
+				            { "data": '삭제' }
+				        ],
+				        columnDefs: [
+				        	{
+				        		'targets' : [4],
+				        		'orderable' : false,
+				        		'searchable' : false,
+				        		'render' : function( data, type, row){	//ajax data 3번째 매개변수 row
+				        					var htmlbtn1 = '<button class="modifyBtn" data-memberId="'+ row.loginNum +'">수정</button>';
+				        					return htmlbtn1;
+				        				 }
+				        	},
+				        	{
+				        		'targets' : [5],
+				        		'orderable' : false,
+				        		'searchable' : false,
+				        		'render' : function( data, type, row){	//ajax data 3번째 매개변수 row
+				        					var htmlbtn1 = '<button class="removeBtn" data-memberId="'+ row.loginId +'">삭제</button>';
+				        					return htmlbtn1;
+				        				 }
+				        	}
+				        ]
+				    } );
+				});
+			});
+		</script>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		<button id="dataTableBtn" type="button">데이터테이블 ajax</button><br><br>
+		<table id="dataTableAjax" class="dataTable" border="1" style="text-align: center;">
+			<thead>
+				<tr>
+					<th>NUM</th>
+					<th>회원아이디</th>
+					<th>로그인날짜</th>
+					<th>로그아웃날짜</th>
+					<th>수정</th>
+					<th>삭제</th>
+				</tr>
+			</thead>
+		</table>
+	</th:block>
+</html>
