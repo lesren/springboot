@@ -36,6 +36,10 @@ public class WebConfig implements WebMvcConfigurer{
 				.excludePathPatterns("/favicon.ico")
 				.excludePathPatterns("/member/addMember")
 				.excludePathPatterns("/")
+				//.excludePathPatterns("/ajax/**")
+				.excludePathPatterns("/loginHistory1")
+				.excludePathPatterns("/loginHistory2")
+				.excludePathPatterns("/loginHistory3")
 				
 				//send redirect 에 /login이 들어있으니까 꼭 exclue /login 추가시켜줘야함 안그러면 무한 로그인 리다이렉트로 인해서 뻗어버림
 				.excludePathPatterns("/login")
