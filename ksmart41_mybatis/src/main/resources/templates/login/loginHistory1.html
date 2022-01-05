@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="@{layout/default}">
+	<th:block layout:fragment="customTitle">
+		<title th:text="${title}"></title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+			<table border="1">
+				<thead>
+					<tr>
+						<th>NUM</th>
+						<th>회원아이디</th>
+						<th>로그인날짜</th>
+						<th>로그아웃날짜</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr th:if="${not #lists.isEmpty(loginHistoryList)}" th:each="l : ${loginHistoryList}">
+						<td th:text="${l.loginNum}"></td>
+						<td th:text="${l.loginId}"></td>
+						<td th:text="${l.loginDate}"></td>
+						<td th:text="${l.logoutDate}"></td>
+					</tr>
+					<tr th:unless="${not #lists.isEmpty(loginHistoryList)}">
+						<td colspan="4">
+							로그인 이력이 없습니다.
+						</td>
+					</tr>
+				</tbody>
+				
+				<tfoot>
+					<tr>
+						<td colspan="4">
+							<a th:href="@{/loginHistory1}">맨처음</a>					
+							<a th:if="${currentPage > 1}" th:href="@{/loginHistory1(currentPage=${currentPage-1})}">이전</a>					
+							<a th:if="${currentPage < lastPage}" th:href="@{/loginHistory1(currentPage=${currentPage+1})}">다음</a>					
+							<a th:href="@{/loginHistory1(currentPage=${lastPage})}">맨마지막</a>	
+						</td>					
+					</tr>
+				</tfoot>
+			</table>
+	</th:block>
+</html>
